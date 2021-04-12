@@ -330,7 +330,6 @@ public class Schema implements Serializable {
 
     public static class ValidationException extends RuntimeException {
         private static final long serialVersionUID = 1652975997878467083L;
-        private String cause;
 
         /**
          * Constructor.
@@ -338,14 +337,8 @@ public class Schema implements Serializable {
          * @param cause The String cause for the exception.
          */
         public ValidationException(String cause) {
-            this.cause = cause;
+            super(cause);
         }
-
-        @Override
-        public String toString() {
-            return cause;
-        }
-
     }
 
     @Getter @Setter
