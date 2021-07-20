@@ -5,6 +5,7 @@
  */
 package com.yahoo.bullet.record.avro;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.io.Decoder;
@@ -42,6 +43,7 @@ public class LazyBulletAvro implements Serializable, Iterable<Map.Entry<String, 
     private static final SpecificDatumWriter<BulletAvro> WRITER = new SpecificDatumWriter<>(BulletAvro.class);
 
     protected byte[] serializedData;
+    @Getter
     protected transient Map<String, Object> data = new HashMap<>();
     protected transient boolean isDeserialized = true;
 

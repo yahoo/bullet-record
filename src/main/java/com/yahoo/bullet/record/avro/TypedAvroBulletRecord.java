@@ -49,6 +49,12 @@ public class TypedAvroBulletRecord extends TypedBulletRecord {
     }
 
     @Override
+    protected Map<String, Serializable> getRawDataMap() {
+        data.forceReadData();
+        return (Map) data.getData();
+    }
+
+    @Override
     public TypedObject get(String field) {
         return makeTypedObject(field, data.get(field));
     }
@@ -79,7 +85,7 @@ public class TypedAvroBulletRecord extends TypedBulletRecord {
 
     @Override
     public TypedAvroBulletRecord copy() {
-        return new TypedAvroBulletRecord(new HashMap<>(this.types), this.data.copy());
+        return new TypedAvroBulletRecord(new HashMap<>(types), data.copy());
     }
 
     @Override

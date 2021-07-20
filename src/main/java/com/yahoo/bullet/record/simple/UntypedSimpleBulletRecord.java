@@ -33,6 +33,11 @@ public class UntypedSimpleBulletRecord extends UntypedBulletRecord {
     }
 
     @Override
+    protected Map<String, Serializable> getRawDataMap() {
+        return data;
+    }
+
+    @Override
     protected Serializable convert(Object object) {
         return (Serializable) object;
     }
